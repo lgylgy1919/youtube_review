@@ -1,0 +1,11 @@
+{
+  "name": "youtube_review",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with VanillaJS and nodeJS",
+  "main": "index.js",
+  "author": "Lee JaeYoon",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
