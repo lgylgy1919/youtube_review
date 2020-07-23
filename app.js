@@ -14,6 +14,8 @@ const app = express();
 
 //view engine을 "pgu"로 지정한다.
 app.set("view engine", "pug");
+//디렉토리에서 파일을 보내주는 미들웨어
+app.use("/uploads", express.static("uploads"));
 //쿠키에 유저정보를 저장한다.
 app.use(cookieParser());
 //사용자가 웹사이트로 전달하는 정보들을 검사, (request 정보에서 form이나 json형태로 된 body를 검사)
