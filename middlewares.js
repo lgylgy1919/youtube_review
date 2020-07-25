@@ -8,7 +8,7 @@ export const localsMiddleware = (req, res, next) => {
   //pug템플릿에서 링크를 걸기 위해 사용하는 변수.
   res.locals.routes = routes;
   res.locals.user = {
-    isAuthenticated: true,
+    isAuthenticated: false,
     id: 1,
   };
   next();
