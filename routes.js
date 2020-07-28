@@ -11,6 +11,7 @@ const USERS = "/users";
 const USER_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
+const ME = "/me";
 
 // Videos
 
@@ -75,6 +76,7 @@ const routes = {
 
   kakao: KAKAO,
   kakaoCallback: KAKAO_CALLBACK,
+  me: ME,
 };
 
 export default routes;
