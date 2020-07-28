@@ -37,9 +37,66 @@ export const postLogin = passport.authenticate("local", {
   successRedirect: routes.home,
 });
 
+//GitHub Login
+export const githubLogin = passport.authenticate("github");
+
+export const githubLoginCallback = async (_, __, profile, cb) => {
+  const {
+    _json: { id, avatar_url, name, email },
+  } = profile;
+  try {
+    const user = await User.findOne({ email });
+    if (user) {
+      user.githubId = id;
+      user.save();
+      return cb(null, user);
+    }
+    const newUser = await User.create({
+      email,
+      name,
+      githubId: id,
+      avatarUrl: avatar_url,
+    });
+    return cb(null, newUser);
+  } catch (error) {
+    return cb(error);
+  }
+};
+export const postGithubLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
+//kakao Login
+
+export const kakaoLogin = passport.authenticate("kakao");
+
+export const kakaoLoginCallback = async (_, __, profile, done) => {
+  const { id, username } = profile;
+  try {
+    const user = await User.findOne({ id });
+    if (user) {
+      user.kakaoId = id;
+      user.save();
+      return done(null, user);
+    }
+    const newUser = await User.create({
+      kakaoId: id,
+      name: username,
+    });
+    return done(null, newUser);
+  } catch (error) {
+    return done(error);
+  }
+};
+
+export const postKakaoLogin = (req, res) => {
+  res.redirect(routes.home);
+};
+
+//Log Out
 export const logout = (req, res) => {
-  // To Do : Process Log Out
-  res.render("logout", { pageTitle: "Log Out" });
+  req.logout();
+  res.redirect(routes.home);
 };
 
 export const userDetail = (req, res) =>

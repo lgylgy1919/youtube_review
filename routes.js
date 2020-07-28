@@ -20,6 +20,14 @@ const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 
+// GIthub
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+
+// Kakao
+const KAKAO = "/oauth";
+const KAKAO_CALLBACK = "/oauth";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -62,6 +70,11 @@ const routes = {
       return DELETE_VIDEO;
     }
   },
+  gitHub: GITHUB,
+  githubCallback: GITHUB_CALLBACK,
+
+  kakao: KAKAO,
+  kakaoCallback: KAKAO_CALLBACK,
 };
 
 export default routes;

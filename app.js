@@ -47,7 +47,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //local 변수를 전역변수로 사용
-
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
