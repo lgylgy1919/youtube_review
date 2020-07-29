@@ -2,6 +2,7 @@ import routes from "./routes";
 import multer from "multer";
 // multer?? 파일 업로드에 필요.
 const multerVideo = multer({ dest: "uploads/videos/" });
+const multerAvatar = multer({ dest: "uploads/avatars/" });
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = "Youtube";
@@ -27,5 +28,6 @@ export const onlyPrivate = (req, res, next) => {
   }
 };
 
-//Single은 하나의 파일만 업로드하겠다는 의미, videorouter에서 미들웨어로 사용
-export const uploadVieo = multerVideo.single("videoFile");
+//Single은 하나의 파일만 업로드하겠다는 의미, videoRouter에서 미들웨어로 사용
+export const uploadVideo = multerVideo.single("videoFile");
+export const uploadAvatar = multerAvatar.single("avatar");

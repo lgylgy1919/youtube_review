@@ -38,7 +38,7 @@ globalRouter.get(
 globalRouter.get(routes.kakao, kakaoLogin);
 globalRouter.get(
   routes.kakaoCallback,
-  passport.authenticate("kakaotalk", { failureRedirect: "/login" }),
+  passport.authenticate("kakao", { failureRedirect: "/login" }),
   postKakaoLogin
 );
 

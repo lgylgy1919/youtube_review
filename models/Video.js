@@ -19,6 +19,10 @@ const VideoSchema = new mongoose.Schema({
     default: Date.now,
   },
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 //정의한 schema를 생성 ( ModelName, schema)

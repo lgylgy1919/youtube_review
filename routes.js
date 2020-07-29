@@ -26,8 +26,8 @@ const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
 // Kakao
-const KAKAO = "/oauth";
-const KAKAO_CALLBACK = "/oauth";
+const KAKAO = "/oauth/kakao";
+const KAKAO_CALLBACK = "/oauth/kakao/callback";
 
 const routes = {
   home: HOME,
