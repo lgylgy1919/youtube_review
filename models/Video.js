@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-//mongoose schema를 정의
+
+//Defining schema
 const VideoSchema = new mongoose.Schema({
   fileUrl: {
     type: String,
