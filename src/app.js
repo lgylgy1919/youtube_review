@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -6,6 +7,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
+import path from "path";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
@@ -23,9 +25,9 @@ const CookieStore = MongoStore(session);
 
 //view engine을 "pgu"로 지정한다.
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 //디렉토리에서 파일을 보내주는 미들웨어
-app.use("/uploads", express.static("uploads"));
-app.use("/static", express.static("static"));
+app.use("/static", express.static(path.join(__dirname, "static")));
 //쿠키에 유저정보를 저장한다.
 app.use(cookieParser());
 //사용자가 웹사이트로 전달하는 정보들을 검사, (request 정보에서 form이나 json형태로 된 body를 검사)
