@@ -46,7 +46,7 @@
     "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js",
     "copyAll": "copy -R src/static build && copy -R src/views build",
-    "build": "npm run build:server && npm run build:assets && npm run copyAll ",
+    "build": "npm run build:server && npm run build:assets && npm run copyAll",
     "prebuild": "rd /s \"build\"",
     "start": "node build/init.js"
   },
